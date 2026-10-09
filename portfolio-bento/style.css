@@ -1,0 +1,283 @@
+:root {
+    --bg-color: #09090b;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-hover-border: rgba(255, 255, 255, 0.2);
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --accent: #8b5cf6; /* Purple accent */
+    --accent-glow: rgba(139, 92, 246, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.08), transparent 25%);
+    overflow-x: hidden;
+}
+
+/* Container Grid */
+.bento-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 220px);
+    gap: 1.5rem;
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* Base Card Style */
+.bento-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects */
+.bento-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--card-hover-border);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+}
+
+/* Grid Spanning */
+.span-2-col {
+    grid-column: span 2;
+}
+
+.span-2-row {
+    grid-row: span 2;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1 span {
+    color: var(--accent);
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    justify-content: center;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 80%;
+    margin-bottom: 1.5rem;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Avatar Card */
+.avatar {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.avatar:hover img {
+    transform: scale(1.1);
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Projects */
+.project-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-link {
+    margin-top: auto;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--accent);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.social-btn {
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.social-btn:hover {
+    background: var(--text-main);
+    color: var(--bg-color);
+}
+
+/* Initial Load Animation */
+.bento-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered Animation Delays */
+#hero-card { animation-delay: 0.1s; }
+#avatar-card { animation-delay: 0.2s; }
+#skills-card { animation-delay: 0.3s; }
+#project-1 { animation-delay: 0.4s; }
+#project-2 { animation-delay: 0.5s; }
+#project-3 { animation-delay: 0.6s; }
+#social-card { animation-delay: 0.7s; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .bento-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+    }
+    .span-2-col {
+        grid-column: span 3;
+    }
+    #avatar-card {
+        grid-column: span 3;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    .span-2-col, .span-2-row, .bento-card {
+        grid-column: span 1;
+        grid-row: auto;
+        min-height: 200px;
+    }
+    #avatar-card {
+        height: 250px;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+}
